@@ -1,0 +1,7 @@
+tunnel: correctpay
+credentials-file: C:\Users\hp\.cloudflared\d531aa66-ce9a-44ee-ac28-c41750ddbaa7.json
+
+ingress:
+  - hostname: pay.correct.tours
+    service: http://localhost:3000
+  - service: http_status:404

@@ -1,0 +1,36 @@
+Read SPEC.md completely before writing any code.
+
+Build the project sequentially according to the BUILD ORDER section in SPEC.md (Phase 1 → Phase 6 only, for now).
+
+Do not skip tests.
+
+Do not invent CIB/SATIM protocol details.
+
+Until official CIB documentation exists, implement MockAdapter only. Leave the CIB adapter as a NOT_IMPLEMENTED stub, per SPEC.md section 12.
+
+Keep CIB-specific code isolated under src/adapters/cib/.
+
+Keep the payment core provider-neutral.
+
+Use strict TypeScript. Never use `any`.
+
+Never store card data.
+
+Never trust browser redirects as payment confirmation.
+
+Never mark a payment PAID from a client-facing endpoint — only from a verified webhook or trusted server-side status query.
+
+After each phase:
+1. Run tests
+2. Run type-check
+3. Run lint
+4. Fix all errors
+5. Report exactly what changed
+6. Stop and wait for me before starting the next phase
+
+If any requirement is ambiguous or protocol-specific, do not guess — mark it:
+// TODO: CONFIRM WITH OFFICIAL CIB PACKAGE
+
+Stop entirely after Phase 6 (full mock end-to-end flow working, all tests passing). Do not start Phase 7 (real CIB adapter) — we don't have the official CIB/SATIM technical package yet. I will give you that document when CIB provides it, and we'll resume from there.
+
+Start now with Phase 1: scaffold the repository as described in SPEC.md section 4 (project structure) and section 3 (stack).
